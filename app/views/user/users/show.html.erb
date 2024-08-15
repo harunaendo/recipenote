@@ -1,0 +1,6 @@
+<h1>ユーザー詳細ページ</h1>
+
+<div>
+<%= image_tag @user.get_profile_image(100,100) %>
+<h3><%= link_to @user.name, edit_user_user_path(@user.id) %></h3>
+</div>

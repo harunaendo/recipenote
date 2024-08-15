@@ -1,2 +1,15 @@
-<h1>User::Recipes#show</h1>
-<p>Find me in app/views/user/recipes/show.html.erb</p>
+<h1>詳細ページ</h1>
+
+<h2>画像</h2>
+<% if @recipe.image.attached? %>
+  <%= image_tag @recipe.image, size: "300x300" %>
+<% else %>
+  <%= image_tag 'no_image', size: "300x300" %>
+<% end %>
+
+<%= @recipe.title %>
+<%= @recipe.body %>
+
+<% if @recipe.user == current_user %>
+    <%= link_to "編集", edit_user_recipe_path(@recipe.id) %>
+<% end %>

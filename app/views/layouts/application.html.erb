@@ -1,16 +1,24 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>レシピNote</title>
+    <title>レシピnote</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <script src="https://kit.fontawesome.com/78ecf9ad97.js" crossorigin="anonymous"></script>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link href="/assets/application.css" rel="stylesheet">
-
   </head>
 
- <%= yield %>
-  </html>
+
+
+  <body>
+    <%= render 'layouts/header' %>   <!-- ここを追記 -->
+    <main>                           <!-- ここを追記 -->
+     <%= yield %>
+    </main>                          <!-- ここを追記 -->
+    <%= render 'layouts/footer' %>   <!-- ここを追記 -->
+  </body>
+
+</html>

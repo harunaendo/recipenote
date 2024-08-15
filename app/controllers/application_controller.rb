@@ -1,15 +1,36 @@
 class ApplicationController < ActionController::Base
+  def after_sign_in_path_for(resource)
+    user_recipes_path
+  end
 
-# private
+  def after_sign_out_path_for(resource)
+    user_root_path(current_user)
+  end
 
-#  def set_header
-#    if admin_signed_in?
-#      @header = 'admin'
-#    elsif user_signed_in?
-#      @header = 'user'
-#    else
-#      @header = 'guest'
-#    end
-#  end
+  def delete
+    if user.save
+      flash[:notice] = 'Signed out successfully.'
+      redirect_to user_root_path
+    else
+      render :new
+    end
+  end
+
+ private
+  def set_header
+    if admin_signed_in?
+      @header = 'admin'
+    elsif user_signed_in?
+      @header = 'user'
+    else
+      @header = 'guest'
+    end
+  end
+
+  protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:email])
+  end
 
 end
