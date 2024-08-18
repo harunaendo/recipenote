@@ -1,15 +1,20 @@
-<h1>レシピ一覧</h1>
-<p>料理名</p>
+<div class='container px-5 px-sm-0'>
+	<div class='row'>
+	  <div class='col-md-8 offset-md-1 mt-4'>
+      <p>レシピ一覧</p>
+        <% @recipes.each do |recipe| %>
+          <p></p>
+          <% if recipe.image.attached? %>
+            <%= image_tag recipe.image, size: "200x200" %>
+          <% else %>
+            <%= image_tag 'no_image', size: "200x200" %>
+          <% end %>
+          　<td><%= link_to recipe.title, user_recipe_path(recipe.id) %></td>
+        　<% end %>
+    </div>
 
-  <% @recipes.each do |recipe| %>
-
-    <p>画像</p>
-    <% if recipe.image.attached? %>
-      <%= image_tag recipe.image, size: "200x200" %>
-    <% else %>
-      <%= image_tag 'no_image', size: "200x200" %>
-    <% end %>
-
-    <td><%= link_to recipe.title, user_recipe_path(recipe.id) %></td>
-    <td><%= recipe.body %></td><br>
-  <% end %>
+    <div class='col-md-3 mt-4'>
+      <%= render 'user/users/show', user: @user %>
+    </div>
+  </div>
+</div>

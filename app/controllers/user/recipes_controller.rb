@@ -15,6 +15,7 @@ class User::RecipesController < ApplicationController
   end
 
   def index
+    @user = current_user
     @recipes = Recipe.all
   end
 
