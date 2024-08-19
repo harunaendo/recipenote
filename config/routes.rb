@@ -15,11 +15,12 @@ Rails.application.routes.draw do
     sessions: "admin/sessions"
   }
 
+
   namespace :user do
     root to: 'homes#top'
     get '/about', to: 'homes#about'
     resources :recipes, only: [:new, :index, :edit, :show, :create, :update, :destroy]
-    resources :users, only: [:show, :edit, :update]
+    resources :users, only: [:edit, :update, :index]
   end
 
  namespace :admin do
