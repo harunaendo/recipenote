@@ -21,6 +21,11 @@
                <% end %>
             </li>
             <li>
+               <%= link_to user_users_path(current_user), class:"nav-link text-light" do%>
+               <i class="fa-solid fa-users"></i> マイページ
+               <% end %>
+            </li>
+            <li>
                 <%= link_to new_user_recipe_path, class:"nav-link text-light" do%>
                 <i class="fa-solid fa-utensils"></i> レシピ投稿
                 <% end %>

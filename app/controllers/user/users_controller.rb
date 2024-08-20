@@ -17,6 +17,18 @@ class User::UsersController < ApplicationController
     end
   end
 
+  def check
+    @user = current_user
+  end
+
+  def withdraw
+    @user = current_user
+    @user.update(is_active: false)
+    reset_session
+ #   flash[:notice] = "退会処理を実行いたしました"
+    redirect_to new_user_registration_path
+  end
+
   private
 
   def user_params
