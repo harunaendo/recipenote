@@ -1,7 +1,7 @@
 <div class='container px-5 px-sm-0'>
 	<div class='row'>
-	  <div class='col-md-8 offset-md-1 mt-4'>
-      <p>ユーザー投稿一覧</p>
+	  <div class='col-10 mt-4'>
+      <p><%= @user.name %>のレシピ一覧</p>
         <% @recipes.each do |recipe| %>
           <p></p>
           <% if recipe.image.attached? %>
@@ -13,8 +13,18 @@
         　<% end %>
     </div>
 
-    <div class='col-md-3 mt-4'>
-      <%= render 'user/users/profile', user: @user %>
+<!--サイドバー-->
+    <div class='col-2 mt-4'>
+      <div class='row'>
+        <div class='col-12'>
+         <%= render 'user/users/profile', user: @user %>
+      </div>
     </div>
+      <div class="row">
+         <div class='col-12'>
+          <%= render "user/searches/search" %>
+         </div>
+      </div>
+
   </div>
 </div>

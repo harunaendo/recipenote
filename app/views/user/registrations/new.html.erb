@@ -7,9 +7,14 @@
       </head>
             <!--%= image_tag "vegetables-assortment-wooden-background-with-empty-clipboard.jpg", size:"800x400" %-->
     </div>
-
     <div class="col-lg-7">
-        </br>
+      </br>
+      <div>
+        <%= flash[:alert] %>
+      </div>
+      <div>
+        <%= flash[:notice] %>
+      </div>
         <h2>新規会員登録</h2>
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <%= render "user/shared/error_user", resource: resource %>

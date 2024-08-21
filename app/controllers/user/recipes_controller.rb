@@ -12,7 +12,7 @@ class User::RecipesController < ApplicationController
     @recipe = Recipe.new(recipe_params)
     @recipe.user_id = current_user.id
     if @recipe.save
-      #flash[:notice] = "投稿完了"
+      flash[:notice] = "投稿完了"
       @user = current_user
       redirect_to user_users_path(@user.id)
     else
@@ -45,7 +45,7 @@ class User::RecipesController < ApplicationController
   def destroy
     @recipe = Recipe.find(params[:id])
     @recipe.destroy
-    redirect_to user_recipes_path
+    redirect_to user_users_path
   end
 
   private
