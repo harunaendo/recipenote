@@ -6,6 +6,8 @@
 
 <h3><%=  user.name %></h3>
 
-<%= link_to "編集",edit_user_user_path(user.id) %>
-
-</div
+<!--他の人の編集表示されないように変更する-->
+<!--% if recipes.user == current_user %-->
+  <%= link_to "編集",edit_user_user_path(user.id) %>
+<!--% end %-->
+</div>

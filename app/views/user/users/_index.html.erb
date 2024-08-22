@@ -4,12 +4,10 @@
         <% users.each do |user| %>
           <p></p>
           <% if user.profile_image.attached? %>
-            <%= image_tag recipe.image, size: "200x200" %>
+            <%= image_tag user.profile_image, size: "200x200" %>
           <% else %>
             <%= image_tag 'no_image', size: "200x200" %>
           <% end %>
-
-          <%=  image_tag recipe.user.get_profile_image(50,50) %> <!--リンク追加する-->
-        　<td><%= link_to recipe.title, user_recipe_path(recipe.id) %></td>
+          <%= link_to user.name, user_user_path(user.id) %>
         　<% end %>
     </div>

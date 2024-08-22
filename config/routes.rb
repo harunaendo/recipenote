@@ -21,7 +21,7 @@ Rails.application.routes.draw do
     patch '/users/withdraw',to: 'users#withdraw', as: 'user_withdraw'
     get "/search", to: "searches#search"
     resources :recipes, only: [:new, :index, :edit, :show, :create, :update, :destroy]
-    resources :users, only: [:edit, :update, :index]
+    resources :users, only: [:edit, :update, :index, :show]
   end
 
  namespace :admin do
