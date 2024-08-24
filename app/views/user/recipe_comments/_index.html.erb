@@ -1,0 +1,21 @@
+
+<table>
+  <tbody>
+      <% recipe.recipe_comments.each do |recipe_comment| %>
+      <tr>
+        <td>
+          <!--%= link_to user_path(book_comment.user) do %-->
+            <%= image_tag recipe_comment.user.get_profile_image( 100, 100) %><br>
+            <%= recipe_comment.user.name %>
+            <%= recipe_comment.comment %>
+          <!--% end %-->
+        </td>
+        <td>
+          <% if recipe_comment.user == current_user %>
+            <%= link_to "Destroy", user_recipe_recipe_comment_path(recipe, recipe_comment), method: :delete, class: "btn btn-danger pull-right" %>
+          <% end %>
+        </td>
+      </tr>
+      <% end %>
+  </tbody>
+</table>

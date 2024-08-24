@@ -9,7 +9,11 @@
 
 <%= @recipe.title %>
 <%= @recipe.body %>
+<td>コメント数： <%= @recipe.recipe_comments.count %></td>
 
-<% if @recipe.user == current_user %>
-    <%= link_to "編集", edit_user_recipe_path(@recipe.id) %>
-<% end %>
+<!--% if @recipe.user == current_user %-->
+    <!--%= link_to "編集", edit_user_recipe_path(@recipe.id) %-->
+<!--% end %-->
+
+<%= render "user/recipe_comments/index", recipe: @recipe %>
+<%= render "user/recipe_comments/form", recipe: @recipe, recipe_comment: @recipe_comment %>
