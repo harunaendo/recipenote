@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'user/homes#top'
+
 
   # 顧客用
   # URL /users/sign_in ...
@@ -28,9 +28,11 @@ Rails.application.routes.draw do
   end
 
  namespace :admin do
-    root to: 'admin/sessions#new'
-
+    root to: 'admin/homes#top'
+    resources :users, only: [:index, :show, :edit, :update]
   end
+
+    root to: 'admin/users#index'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

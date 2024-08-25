@@ -1,13 +1,17 @@
-<h1>新規投稿</h1>
-<%= render 'user/shared/error_messages' %>
-
-<%= form_with model: @recipe, url: '/user/recipes', method: :post do |f| %>
-<!--%= form_with(model: @recipe, local: true, url: recipes_path, method: :post) do |f| %-->
-  <h4>画像</h4>
-  <%= f.file_field :image, accept: "image/*" %>
-  <h4>料理名</h4>
-  <%= f.text_field :title %>
-  <h4>レシピ</h4>
-  <%= f.text_area :body %>
-  <%= f.submit "投稿", class: "btn btn-success" %>
-<% end %>
+<div class='main-container'>
+	<div class='row'>
+	  <div class='mx-auto mt-4 mb-4' style='width: 200px;' >
+        <%= render 'user/shared/error_messages' %>
+        <%= form_with model: @recipe, url: '/user/recipes', method: :post do |f| %>
+        <!--%= form_with(model: @recipe, local: true, url: recipes_path, method: :post) do |f| %-->
+          <h4>画像</h4>
+          <%= f.file_field :image, accept: "image/*" %>
+          <h4>料理名</h4>
+          <%= f.text_field :title %>
+          <h4>レシピ</h4>
+          <%= f.text_area :body %>
+          <%= f.submit "投稿", class: "btn btn-success" %>
+        <% end %>
+    </div>
+  </div>
+</div>

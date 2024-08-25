@@ -23,7 +23,21 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav ml-auto">
 
-          <% if user_signed_in? %><!--ユーザーログイン中、いいねとマイページ追加-->
+          <% if admin_signed_in? %>
+              <li>
+                 <%= link_to new_admin_session_path, class:"nav-link text-light" do%><i class="fa-solid fa-arrow-right-to-bracket"></i> ログイン
+                 <% end %>
+              </li>
+              <li>
+                 <%= link_to destroy_admin_session_path, method: :delete, class:"nav-link text-light" do%><i class="fa-solid fa-right-from-bracket"></i> ログアウト
+                 <% end %>
+              </li>
+              <li>
+                  <%= link_to admin_users_path, class:"nav-link text-light" do%><i class="fa-solid fa-users"></i> 会員一覧
+                  <% end %>
+              </li>
+
+          <% elsif user_signed_in? %><!--ユーザーログイン中、いいねとマイページ追加-->
               <li>
                   <%= link_to user_recipes_path, class:"nav-link text-light" do%><i class="fa-solid fa-book-open"></i> レシピ一覧
                   <% end %>
@@ -40,10 +54,6 @@
                  <%= link_to destroy_user_session_path, method: :delete, class:"nav-link text-light" do%><i class="fa-solid fa-right-from-bracket"></i> ログアウト
                  <% end %>
               </li>
-              
-          <!--% elsif admin_signed_in? % 投稿一覧、ログイン、ログアウト>
-          
-          
             <!--ログインしていない時-->
           <% else %>
               <li>
@@ -55,6 +65,7 @@
                  <% end %>
               </li>
           <% end %>
+
           </ul>
         </div>
       </div>

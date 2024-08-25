@@ -3,15 +3,13 @@
  <% else %>
     <%= image_tag 'no_image', size: "100x100" %>
  <% end %>
-
-<h3><%=  user.name %></h3>
-
-<!--他の人の編集表示されないように変更する-->
-<% @recipes.each do |recipe| %>
-    <% if recipe.user == current_user %>
-      <%= link_to "編集",edit_user_user_path(user.id) %>
-    <% else %>
-      <td></td>
-    <% end %>
-<% end %>
+<div>
+  <h3><%=  user.name %></h3>
+  <% @recipes.each do |recipe| %>
+      <% if recipe.user == current_user %>
+        <%= link_to "編集",edit_user_user_path(user.id) %>
+      <% else %>
+        <td></td>
+      <% end %>
+  <% end %>
 </div>

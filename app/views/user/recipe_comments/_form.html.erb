@@ -2,7 +2,6 @@
   <!--%= f.text_area :comment, rows:'5',placeholder: "コメントをここに", class: "w-100" %-->
   <!--%= f.submit "送信" %-->
 <!--% end %-->
-投稿フォーム
 <%= form_with(model: @recipe_comment, url: user_recipe_recipe_comments_path(@recipe), local: true) do |f| %>
   <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに", class: "w-50" %>
   <%= f.submit "送信" %>
