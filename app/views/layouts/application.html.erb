@@ -10,13 +10,56 @@
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="/assets/application.css" rel="stylesheet">
-
   </head>
 
+ <body>
+   <header>
+     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="/user"><span>レシピnote</span></a>
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+           <span class="navbar-toggler-icon"></span>
+         </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav ml-auto">
 
-
-  <body>
-    <%= render 'layouts/header' %>   <!-- ここを追記 -->
+          <% if user_signed_in? %><!--ユーザーログイン中、いいねとマイページ追加-->
+              <li>
+                  <%= link_to user_recipes_path, class:"nav-link text-light" do%><i class="fa-solid fa-book-open"></i> レシピ一覧
+                  <% end %>
+              </li>
+              <li>
+                  <%= link_to user_users_path(current_user), class:"nav-link text-light" do%><i class="fa-solid fa-circle-user"></i> マイページ
+                  <% end %>
+              </li>
+              <li>
+                  <%= link_to new_user_recipe_path, class:"nav-link text-light" do%><i class="fa-solid fa-utensils"></i> レシピ投稿
+                  <% end %>
+              </li>
+              <li>
+                 <%= link_to destroy_user_session_path, method: :delete, class:"nav-link text-light" do%><i class="fa-solid fa-right-from-bracket"></i> ログアウト
+                 <% end %>
+              </li>
+              
+          <!--% elsif admin_signed_in? % 投稿一覧、ログイン、ログアウト>
+          
+          
+            <!--ログインしていない時-->
+          <% else %>
+              <li>
+                 <%= link_to new_user_session_path, class:"nav-link text-light" do%><i class="fa-solid fa-arrow-right-to-bracket"></i> ログイン
+                 <% end %>
+              </li>
+              <li>
+                 <%= link_to new_user_registration_path, class:"nav-link text-light" do %><i class="fa-solid fa-user-plus"></i> 新規会員登録
+                 <% end %>
+              </li>
+          <% end %>
+          </ul>
+        </div>
+      </div>
+      </nav>
+   </header>
     <main>                           <!-- ここを追記 -->
      <%= yield %>
     </main>                          <!-- ここを追記 -->
