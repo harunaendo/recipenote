@@ -4,7 +4,7 @@
       <% if @recipe.image.attached? %>
         <%= image_tag @recipe.image, size: "200x200" %>
       <% else %>
-        <%= image_tag 'no_image', size: "200x200" %>
+        <%= image_tag 'no_image.jpg', size: "200x200" %>
       <% end %>
       <td>コメント数： <%= @recipe.recipe_comments.count %></td>
 
