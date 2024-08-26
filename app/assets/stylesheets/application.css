@@ -20,3 +20,14 @@
 .table{
   width: 80%;
 }
+
+.left-item{
+  width: 20%;
+  display: inline-block;
+}
+
+.rigth-item{
+  width: 60%;
+  display: inline-block;
+}
+

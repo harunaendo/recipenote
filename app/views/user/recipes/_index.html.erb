@@ -1,15 +1,16 @@
-<div class='container px-5 px-sm-0'>
-	<div class='row'>
-	  <div class='col-md-8 offset-md-1 mt-4'>
-        <% recipes.each do |recipe| %>
-          <p></p>
-          <% if recipe.image.attached? %>
-            <%= image_tag recipe.image, size: "200x200" %>
-          <% else %>
-            <%= image_tag 'no_image.jpg', size: "200x200" %>
-          <% end %>
+      <% recipes.each do |recipe| %>
+       <ul class=left-item>
+         <a>
+            <% if recipe.image.attached? %>
+              <%= image_tag recipe.image, size: "200x200" %>
+            <% else %>
+              <%= image_tag 'no_image.jpg', size: "200x200" %>
+            <% end %>
+          </a>
+        </ul>
+        <ul class=rigth-item>
+          <h4><%= link_to recipe.title, user_recipe_path(recipe.id) %></h4>
+          <p><%=  image_tag recipe.user.get_profile_image(50,50) %> <%= link_to recipe.user.name, user_user_path(recipe.user.id) %></p>
+        </ul>
+      <% end %>
 
-          <%=  image_tag recipe.user.get_profile_image(50,50) %> <!--リンク追加する-->
-        　<td><%= link_to recipe.title, user_recipe_path(recipe.id) %></td>
-        　<% end %>
-    </div>

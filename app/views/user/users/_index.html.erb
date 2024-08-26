@@ -1,7 +1,4 @@
-<div class='container px-5 px-sm-0'>
-	<div class='row'>
-	  <div class='col-md-8 offset-md-1 mt-4'>
-        <% users.each do |user| %>
+  　　 <% users.each do |user| %>
           <p></p>
           <% if user.profile_image.attached? %>
             <%= image_tag user.profile_image, size: "200x200" %>
@@ -9,5 +6,5 @@
             <%= image_tag 'no_image.jpg', size: "200x200" %>
           <% end %>
           <%= link_to user.name, user_user_path(user.id) %>
-        　<% end %>
-    </div>
+    　<% end %>
+

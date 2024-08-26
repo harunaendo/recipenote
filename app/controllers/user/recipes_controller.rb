@@ -14,7 +14,7 @@ class User::RecipesController < ApplicationController
     if @recipe.save
       flash[:notice] = "投稿完了"
       @user = current_user
-      redirect_to user_users_path(@user.id)
+      redirect_to user_users_path
     else
       render :new
     end
