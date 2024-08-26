@@ -1,7 +1,8 @@
 <div class='main-container'>
 	<div class='row'>
 	  <div class='col-9 mt-4 ml-4 mb-4'>
-        <% @recipes.each do |recipe| %>
+	         <% @recipes.each do |recipe| %>
+
           <p></p>
           <% if recipe.image.attached? %>
             <%= image_tag recipe.image, size: "200x200" %>
@@ -9,10 +10,11 @@
             <%= image_tag 'no_image', size: "200x200" %>
           <% end %>
 
+
           <td><%= link_to recipe.user.name, user_user_path(recipe.user.id) %></td>
         　<td><%= link_to recipe.title, user_recipe_path(recipe.id) %></td>
-        　<% end %>
-    </div>
+           <% end %>
+     </div>
 
     <div class='col-2 mt-4'>
       <div class='row'>
