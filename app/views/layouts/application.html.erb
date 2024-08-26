@@ -8,8 +8,8 @@
 
     <script src="https://kit.fontawesome.com/78ecf9ad97.js" crossorigin="anonymous"></script>
 
-    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %> <%# javascriptから呼び出されたCSS %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %> <%# assetsから呼び出されたCSS %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
@@ -44,7 +44,7 @@
                   <% end %>
               </li>
               <li>
-                  <%= link_to user_users_path(current_user), class:"nav-link text-light" do%><i class="fa-solid fa-circle-user"></i> マイページ
+                  <%= link_to user_users_path, class:"nav-link text-light" do%><i class="fa-solid fa-circle-user"></i> マイページ
                   <% end %>
               </li>
               <li>
