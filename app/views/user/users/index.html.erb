@@ -12,6 +12,9 @@
           <% end %>
           　<td><%= link_to recipe.title, user_recipe_path(recipe.id) %></td>
           <% end %>
+      <nav class='paginate'>
+       <%= paginate @recipes %>
+      </nav>
      </div>
 
 
