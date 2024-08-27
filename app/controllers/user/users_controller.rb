@@ -1,4 +1,6 @@
 class User::UsersController < ApplicationController
+  before_action :set_user, only: [:favorites]
+
   def index
     @user = current_user
     @recipes = @user.recipes.page(params[:page])
@@ -34,9 +36,19 @@ class User::UsersController < ApplicationController
     redirect_to new_user_registration_path
   end
 
+  def favorites
+    favorites = Favorite.where(user_id: @user.id).pluck(:recipe_id)
+    @favorite_recipes = Recipe.find(favorites)
+    @favorites = @user.favorites.page(params[:page])
+  end
+
   private
 
   def user_params
     params.require(:user).permit(:name, :profile_image)
+  end
+
+  def set_user
+    @user = User.find(params[:id])
   end
 end

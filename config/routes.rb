@@ -21,7 +21,11 @@ Rails.application.routes.draw do
     patch '/users/withdraw',to: 'users#withdraw', as: 'user_withdraw'
     get "/search", to: "searches#search"
 
-    resources :users, only: [:edit, :update, :index, :show]
+    resources :users, only: [:edit, :update, :index, :show] do
+      member do
+       get :favorites
+      end
+    end
     resources :recipes, only: [:new, :index, :edit, :show, :create, :update, :destroy] do
       resources :recipe_comments, only: [:create, :destroy]
       resource :favorites, only: [:create, :destroy]

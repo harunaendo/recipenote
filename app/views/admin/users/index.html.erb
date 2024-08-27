@@ -2,22 +2,24 @@
 <div class="row align-items-center">
   <div class="col-auto">
   </div>
-  <table class="table">
-    <thead>
-      <tr>
-        <th>会員ID</th>
-        <th>氏名</th>
-        <th>メールアドレス</th>
-        <th>ステータス</th>
-      </tr>
-    </thead>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.id %></td>
-        <td><%= link_to user.name , admin_user_path(user.id) %></td>
-        <td><%= user.email %></td>
-        <td><%= user.user_status %> </td>
-      </tr>
-    <% end %>
-  </table>
+  <div class="admin-table">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>会員ID</th>
+          <th>氏名</th>
+          <th>メールアドレス</th>
+          <th>ステータス</th>
+        </tr>
+      </thead>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.id %></td>
+          <td><%= link_to user.name , admin_user_path(user.id) %></td>
+          <td><%= user.email %></td>
+          <td><%= user.user_status %> </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
 </div>

@@ -12,4 +12,8 @@ class User::FavoritesController < ApplicationController
     favorite.destroy
     redirect_to user_recipe_path(recipe)
   end
+
+  def favorites
+    @favorites = Favorite.page(params[:page])
+  end
 end
