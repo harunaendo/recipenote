@@ -22,7 +22,7 @@ class User::RecipesController < ApplicationController
 
   def index
     @user = current_user
-    @recipes = Recipe.all
+    @recipes = Recipe.page(params[:page])
   end
 
   def edit

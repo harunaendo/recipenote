@@ -2,9 +2,14 @@ class Recipe < ApplicationRecord
   belongs_to :user
   has_one_attached :image
   has_many :recipe_comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
   validates :title, presence: true
   validates :body, presence: true, length: { maximum: 200 }
+
+  def favorited_by?(user)
+   favorites.exists?(user_id: user.id)
+  end
 
   #検索
   def self.search_for(content, method)

@@ -1,7 +1,7 @@
 class User::UsersController < ApplicationController
   def index
     @user = current_user
-    @recipes = @user.recipes
+    @recipes = @user.recipes.page(params[:page])
   end
 
   def edit
@@ -10,13 +10,13 @@ class User::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @recipes = @user.recipes
+    @recipes = @user.recipes.page(params[:page])
   end
 
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-       redirect_to user_users_path(@user.id)
+       redirect_to user_users_path
     else
       render :edit
     end

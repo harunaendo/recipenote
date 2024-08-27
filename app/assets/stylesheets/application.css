@@ -13,8 +13,11 @@
  *= require_tree .
  *= require_self
  */
+
+ /*全体の背景色指定 */
  main{
   background-color: #F5F5F5;
+  height: 100%;
 }
 
 .table{
@@ -29,5 +32,13 @@
 .rigth-item{
   width: 60%;
   display: inline-block;
+}
+.paginate{
+  margin-left: 40px;
+}
+
+.comment{
+  background-color: #FFFFFF;
+  height: 100%;
 }
 
