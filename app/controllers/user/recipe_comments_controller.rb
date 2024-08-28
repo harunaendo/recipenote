@@ -1,4 +1,5 @@
 class User::RecipeCommentsController < ApplicationController
+  before_action :authenticate_user!
   def create
     recipe = Recipe.find(params[:recipe_id])
     comment = current_user.recipe_comments.new(recipe_comment_params)
