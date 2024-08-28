@@ -19,7 +19,8 @@
 - 自分が作ったレシピを投稿する時
 
 ## 設計書
-後ほど作成予定
+- テーブル定義書
+  https://docs.google.com/spreadsheets/d/1xnMaR8QdA0tNIXEEkj1aILuRXIib355tTCeeLoYpVtU/edit?usp=sharing
 
 ​
 ## 開発環境
