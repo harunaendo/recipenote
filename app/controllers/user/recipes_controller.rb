@@ -27,6 +27,12 @@ class User::RecipesController < ApplicationController
 
   def edit
     @recipe = Recipe.find(params[:id])
+    if @recipe.user == current_user
+      render "edit"
+    else
+      redirect_to user_recipes_path
+    end
+
   end
 
   def show

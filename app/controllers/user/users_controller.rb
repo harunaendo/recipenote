@@ -9,6 +9,11 @@ class User::UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    if @user == current_user
+      render "edit"
+    else
+      redirect_to user_users_path
+    end
   end
 
   def show
