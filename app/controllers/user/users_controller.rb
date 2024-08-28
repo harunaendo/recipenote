@@ -1,6 +1,5 @@
 class User::UsersController < ApplicationController
   before_action :set_user, only: [:favorites]
-  before_action :authenticate_user!
 
   def index
     @user = current_user
