@@ -5,6 +5,7 @@ class User::UsersController < ApplicationController
   def index
     @user = current_user
     @recipes = @user.recipes.page(params[:page])
+
   end
 
   def edit
@@ -40,15 +41,6 @@ class User::UsersController < ApplicationController
     reset_session
     flash[:notice] = "退会処理を実行いたしました"
     redirect_to new_user_registration_path
-  end
-
-  def favorites
-    #@user = User.find(params[:id])
-    #@recipes = @user.recipes
-    @recipes = Recipe.find(params[:id])
-    favorites = Favorite.where(user_id: @user.id).pluck(:recipe_id)
-    @favorite_recipes = Recipe.find(favorites)
-    @favorites = @user.favorites.page(params[:page])
   end
 
   def follows
