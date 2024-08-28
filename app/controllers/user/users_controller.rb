@@ -1,5 +1,5 @@
 class User::UsersController < ApplicationController
-  before_action :set_user, only: [:favorites]
+  #before_action :set_user, only: [:favorites]
   before_action :authenticate_user!
 
   def index
@@ -62,7 +62,7 @@ class User::UsersController < ApplicationController
     params.require(:user).permit(:name, :profile_image)
   end
 
-  def set_user
-    @user = User.find(params[:id])
-  end
+  #def set_user
+  #  @user = User.find(params[:id])
+  #end
 end
