@@ -1,11 +1,10 @@
 class User::UsersController < ApplicationController
-  #before_action :set_user, only: [:favorites]
+  before_action :set_user, only: [:favorites]
   before_action :authenticate_user!
 
   def index
     @user = current_user
     @recipes = @user.recipes.page(params[:page])
-
   end
 
   def edit
@@ -43,6 +42,15 @@ class User::UsersController < ApplicationController
     redirect_to new_user_registration_path
   end
 
+  def favorites
+    #@user = User.find(params[:id])
+    #@recipes = @user.recipes
+    @recipes = Recipe.find(params[:id])
+    favorites = Favorite.where(user_id: @user.id).pluck(:recipe_id)
+    @favorite_recipes = Recipe.find(favorites)
+    @favorites = @user.favorites.page(params[:page])
+  end
+
   def follows
    user = User.find(params[:id])
    @users = user.following_users
@@ -59,7 +67,7 @@ class User::UsersController < ApplicationController
     params.require(:user).permit(:name, :profile_image)
   end
 
-  #def set_user
-  #  @user = User.find(params[:id])
-  #end
+  def set_user
+    @user = User.find(params[:id])
+  end
 end

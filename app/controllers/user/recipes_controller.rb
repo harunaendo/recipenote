@@ -25,6 +25,21 @@ class User::RecipesController < ApplicationController
     @recipes = Recipe.page(params[:page])
   end
 
+  def favorites
+    #@user = User.find(params[:id])
+    #@recipes = @user.recipes
+    #@recipes = Recipe.find(params[:id])
+    #favorites = Favorite.where(user_id: @user.id).pluck(:recipe_id)
+    #@favorite_recipes = Recipe.find(favorites)
+    #@favorites = @user.favorites.page(params[:page])
+    @user = User.find(params[:id])
+    favorites = Favorite.where(user_id: @user.id).pluck(:recipe_id)
+    @favorite_recipes = Recipe.find(favorites)
+    @recipe = Recipe.find(params[:id])
+    @recipes = Recipes.page(params[:page])
+  end
+
+
   def edit
     @recipe = Recipe.find(params[:id])
     if @recipe.user == current_user
