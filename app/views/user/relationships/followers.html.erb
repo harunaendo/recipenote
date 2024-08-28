@@ -1,0 +1,37 @@
+<div class='main-container'>
+	<div class='row'>
+	  <div class='col-9 mt-4 ml-4 mb-4'>
+      <h2>フォロワー</h2>
+        <table class='table'>
+          <thead>
+            <tr>
+              <th>Image</th>
+              <th>name</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @users.each do |user| %>
+              <tr>
+                <td>
+                    <%= image_tag user.get_profile_image(50,50) %>
+                </td>
+                <td><%= user.name %></td>
+                <td>
+                  <%= link_to user_user_followings_path do %>
+                    <h6>フォロー<%= user.followings.count %></h6>
+                  <% end %>
+                </td>
+                <td>
+                  <%= link_to user_user_followers_path(user)do %>
+                    <h6>フォロワー<%= user.followers.count %></h6>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+</div>

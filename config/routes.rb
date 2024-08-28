@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-
-
   # 顧客用
   # URL /users/sign_in ...
   devise_for :users,skip: [:passwords], controllers: {
@@ -25,7 +23,10 @@ Rails.application.routes.draw do
       member do
        get :favorites
       end
-    end
+      resource :relationships, only: [:create, :destroy]
+        get 'followings' => 'relationships#followings', as: 'followings'
+        get 'followers' => 'relationships#followers', as: 'followers'
+        end
     resources :recipes, only: [:new, :index, :edit, :show, :create, :update, :destroy] do
       resources :recipe_comments, only: [:create, :destroy]
       resource :favorites, only: [:create, :destroy]

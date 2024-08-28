@@ -40,10 +40,19 @@ class User::UsersController < ApplicationController
     #@user = User.find(params[:id])
     #@recipes = @user.recipes
     @recipes = Recipe.find(params[:id])
-
     favorites = Favorite.where(user_id: @user.id).pluck(:recipe_id)
     @favorite_recipes = Recipe.find(favorites)
     @favorites = @user.favorites.page(params[:page])
+  end
+
+  def follows
+   user = User.find(params[:id])
+   @users = user.following_users
+  end
+
+  def followers
+    user = User.find(params[:id])
+    @users = user.follower_users
   end
 
   private

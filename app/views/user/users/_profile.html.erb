@@ -1,15 +1,30 @@
- <% if user.profile_image.attached? %>
-    <%= image_tag user.get_profile_image(100,100) %>
- <% else %>
-    <%= image_tag 'no_image.jpg', size: "100x100" %>
- <% end %>
-
-  <h3><%= user.name %></h3>
-
-
- <% if current_user %>
-    <%= link_to "編集",edit_user_user_path(current_user) %>
-<% else %>
-    <td></td>
-<% end %>
+<div class="container">
+ <div class="row">
+   <div class='col-12'>
+      <% if user.profile_image.attached? %>
+         <%= image_tag user.get_profile_image(100,100) %>
+      <% else %>
+         <%= image_tag 'no_image.jpg', size: "100x100" %>
+      <% end %>
+   </div>
+  </div>
+  <div class="row">
+   <div class='col-8'>
+     <h3><%= user.name %></h3>
+   </div>
+   <div class='col-4'>
+      <% if current_user %>
+        <%= link_to "編集",edit_user_user_path(current_user) %>
+      <% else %>
+        <td></td>
+      <% end %>
+    </div>
+   </div>
+   <div class="row">
+    <div class='col-12'>
+      <td>フォロー中: <%= link_to @user.followings.count, user_user_followings_path(@user.id) %></td>
+      <td>フォロワー: <%= link_to @user.followers.count, user_user_followers_path(@user.id) %></td>
+    </div>
+   </div>
+</div>
 

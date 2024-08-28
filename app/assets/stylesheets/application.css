@@ -32,6 +32,7 @@
 .rigth-item{
   width: 60%;
   display: inline-block;
+  margin-left: 20px;
 }
 .paginate{
   margin-left: 40px;
