@@ -5,9 +5,9 @@
       <tr>
         <td>
           <!--%= link_to user_path(book_comment.user) do %-->
-            <%= image_tag recipe_comment.user.get_profile_image( 100, 100) %><br>
+            <%= image_tag recipe_comment.user.get_profile_image( 50, 50) %>
             <%= recipe_comment.user.name %>
-            <%= recipe_comment.comment %>
+            : <%= recipe_comment.comment %>
           <!--% end %-->
         </td>
         <td>

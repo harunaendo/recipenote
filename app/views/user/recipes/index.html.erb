@@ -1,6 +1,6 @@
 <div class='main-container'>
 	<div class='row'>
-	  <div class='col-9 mt-4 ml-4 mb-4'>
+	  <div class='col-8 mt-4 ml-4 mb-4'>
      <% @recipes.each do |recipe| %>
   	    <ul class=left-item>
             <a>
@@ -22,14 +22,14 @@
 
       </div>
 
-    <div class='col-2 mt-4'>
+    <div class='col-3'>
       <div class='row'>
-        <div class='col-12'>
+        <div class='col-12 mt-4'>
           <%= render 'user/users/profile', user: @user %>
         </div>
       </div>
       <div class='row'>
-        <div class='col-12 mt-15'>
+        <div class='col-12 mt-4'>
           <%= render "user/searches/search" %>
         </div>
       </div>
