@@ -20,7 +20,7 @@
 
 ## 設計書
 - テーブル定義書
-  https://docs.google.com/spreadsheets/d/1xnMaR8QdA0tNIXEEkj1aILuRXIib355tTCeeLoYpVtU/edit?usp=sharing
+ - https://docs.google.com/spreadsheets/d/1xnMaR8QdA0tNIXEEkj1aILuRXIib355tTCeeLoYpVtU/edit?usp=sharing
 
 ​
 ## 開発環境
