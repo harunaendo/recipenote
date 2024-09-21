@@ -44,7 +44,6 @@ class User::UsersController < ApplicationController
   def favorites
     #@user = User.find(params[:id])
     #@recipes = @user.recipes
-    @recipes = Recipe.find(params[:id])
     favorites = Favorite.where(user_id: @user.id).pluck(:recipe_id)
     @favorite_recipes = Recipe.find(favorites)
     @favorites = @user.favorites.page(params[:page])
