@@ -16,7 +16,6 @@ class User::UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
     @recipes = @user.recipes.page(params[:page])
   end
 
@@ -49,7 +48,7 @@ class User::UsersController < ApplicationController
     @favorites = @user.favorites.page(params[:page])
   end
 
-  def follows
+  def followings
    user = User.find(params[:id])
    @users = user.following_users
   end

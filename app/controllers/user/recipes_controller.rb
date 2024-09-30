@@ -22,6 +22,7 @@ class User::RecipesController < ApplicationController
 
   def index
     @user = current_user
+    @recipe = Recipe.all.order(created_at: :desc)
     @recipes = Recipe.page(params[:page])
   end
 

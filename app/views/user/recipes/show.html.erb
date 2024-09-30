@@ -26,10 +26,13 @@
               <% end %>
               <%= @recipe.favorites.count %>
           <% end %>
+        </td></br>
+        <td>
+        <%= @recipe.created_at.strftime('%Y/%m/%d') %>
         </td>
       </div>
       <div class='col-12 mt-4'>
-        <td>レシピ: <%= @recipe.body %></td>
+        <td>レシピ: <%= simple_format(@recipe.body, sanitize: true) %></td>
             <% if @recipe.user == current_user %>
                 <%= link_to "編集", edit_user_recipe_path(@recipe.id) %>
             <% end %>
