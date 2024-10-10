@@ -16,6 +16,7 @@ class User::UsersController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:id])
     @recipes = @user.recipes.page(params[:page])
   end
 
